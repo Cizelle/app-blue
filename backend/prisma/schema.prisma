@@ -1,0 +1,131 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model donations {
+  donation_id      Int             @id @default(autoincrement())
+  user_id          Int?
+  report_id        Int?
+  amount           Decimal         @db.Decimal(12, 2)
+  currency         String          @db.VarChar(20)
+  payment_method   String          @db.VarChar(20)
+  transaction_hash String?         @db.VarChar(255)
+  donation_time    DateTime?       @default(now()) @db.Timestamp(6)
+  purpose          String?         @db.VarChar(100)
+  status           String?         @default("Pending") @db.VarChar(10)
+  hazard_reports   hazard_reports? @relation(fields: [report_id], references: [report_id], onDelete: NoAction, onUpdate: NoAction)
+  users            users?          @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model hazard_reports {
+  report_id                                Int             @id @default(autoincrement())
+  user_id                                  Int
+  event_type                               String          @db.VarChar(20)
+  report_category                          String?         @default("Observation") @db.VarChar(20)
+  description                              String?
+  latitude                                 Decimal?        @db.Decimal(10, 6)
+  longitude                                Decimal?        @db.Decimal(10, 6)
+  location_description                     String?         @db.VarChar(255)
+  submission_time                          DateTime?       @default(now()) @db.Timestamp(6)
+  report_status                            String?         @default("New") @db.VarChar(10)
+  source_type                              String?         @default("Citizen") @db.VarChar(20)
+  validated_by                             Int?
+  validated_time                           DateTime?       @db.Timestamp(6)
+  org_name                                 String?         @default(dbgenerated("md5((random())::text)")) @db.VarChar(100)
+  org_id                                   Int?            @default(dbgenerated("(floor((random() * (1000000)::double precision)))::integer"))
+  org_upi_id                               String?         @default("6299563975@ptsbi") @db.VarChar(50)
+  bank_acc                                 String?         @default(dbgenerated("md5((random())::text)")) @db.VarChar(50)
+  crypto_wallet                            String?         @default("TAcvjG9iZiYo5SgkN699sRV3x8S9GUM2PM") @db.VarChar(100)
+  donations                                donations[]
+  users_hazard_reports_user_idTousers      users           @relation("hazard_reports_user_idTousers", fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+  users_hazard_reports_validated_byTousers users?          @relation("hazard_reports_validated_byTousers", fields: [validated_by], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+  media_uploads                            media_uploads[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model media_uploads {
+  media_id       Int            @id @default(autoincrement())
+  report_id      Int
+  user_id        Int
+  media_type     String?        @db.VarChar(10)
+  file_path      String         @db.VarChar(255)
+  upload_time    DateTime?      @default(now()) @db.Timestamp(6)
+  hazard_reports hazard_reports @relation(fields: [report_id], references: [report_id], onDelete: NoAction, onUpdate: NoAction)
+  users          users          @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model social_media_posts {
+  post_id           Int       @id @default(autoincrement())
+  platform          String    @db.VarChar(50)
+  original_post_id  String?   @db.VarChar(100)
+  author_handle     String?   @db.VarChar(100)
+  account_type      String?   @db.VarChar(50)
+  content           String?
+  media_url         String?   @db.VarChar(255)
+  post_time         DateTime? @db.Timestamp(6)
+  city              String?   @db.VarChar(100)
+  state             String?   @db.VarChar(100)
+  country           String?   @db.VarChar(100)
+  detected_keywords String?
+  event_type        String?   @db.VarChar(50)
+  source_url        String?   @db.VarChar(255)
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model users {
+  user_id                                           Int              @id @default(autoincrement())
+  username                                          String?          @unique @db.VarChar(50)
+  email                                             String           @unique @db.VarChar(100)
+  phone                                             String           @unique @db.VarChar(20)
+  password_hash                                     String           @db.VarChar(255)
+  oauth_provider                                    String?          @db.VarChar(50)
+  oauth_id                                          String?          @db.VarChar(255)
+  two_factor_enabled                                Boolean?         @default(false)
+  biometric_enabled                                 Boolean?         @default(false)
+  name                                              String           @db.VarChar(100)
+  dob                                               DateTime?        @db.Date
+  gender                                            String?          @db.VarChar(10)
+  height                                            Decimal?         @db.Decimal(5, 2)
+  weight                                            Decimal?         @db.Decimal(5, 2)
+  address                                           String?
+  city                                              String?          @db.VarChar(100)
+  state                                             String?          @db.VarChar(100)
+  country                                           String?          @db.VarChar(100)
+  profile_photo                                     String?          @db.VarChar(255)
+  emotional_status                                  String?          @default("NEUTRAL") @db.VarChar(10)
+  emergency_contact_name                            String?          @db.VarChar(100)
+  emergency_contact_phone                           String?          @db.VarChar(20)
+  allergies                                         String?
+  disabilities                                      String?
+  blood_group                                       String?          @db.VarChar(10)
+  hospital_names                                    String?
+  past_medical_record                               String?
+  medical_reports_file                              String?
+  role                                              String           @db.VarChar(20)
+  registration_date                                 DateTime?        @default(now()) @db.Timestamp(6)
+  last_login_date                                   DateTime?        @db.Timestamp(6)
+  account_status                                    String?          @default("Pending") @db.VarChar(10)
+  designation                                       String?          @db.VarChar(100)
+  organization_name                                 String?          @db.VarChar(150)
+  employee_id                                       String?          @db.VarChar(100)
+  id_proof_document                                 String?          @db.VarChar(255)
+  authorization_letter                              String?          @db.VarChar(255)
+  parent_user_id                                    Int?
+  missing_status                                    String?          @default("Active") @db.VarChar(10)
+  drill_points                                      Int?             @default(0)
+  donations                                         donations[]
+  hazard_reports_hazard_reports_user_idTousers      hazard_reports[] @relation("hazard_reports_user_idTousers")
+  hazard_reports_hazard_reports_validated_byTousers hazard_reports[] @relation("hazard_reports_validated_byTousers")
+  media_uploads                                     media_uploads[]
+  users                                             users?           @relation("usersTousers", fields: [parent_user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction)
+  other_users                                       users[]          @relation("usersTousers")
+}

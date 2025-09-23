@@ -1,0 +1,547 @@
+{
+  "settings": {
+    "language": {
+      "title": "भाषा",
+      "changeLanguage": "भाषा बदलें"
+    },
+    "header": {
+      "title": "सेटिंग्स",
+      "subtitle": "अपना खाता, प्राथमिकताएं और अनुमतियाँ प्रबंधित करें"
+    },
+    "account": {
+      "title": "खाता सेटिंग्स",
+      "editProfile": {
+        "text": "प्रोफ़ाइल संपादित करें",
+        "subtext": "अपनी व्यक्तिगत जानकारी अपडेट करें"
+      },
+      "emergencyContacts": {
+        "text": "आपातकालीन संपर्क",
+        "subtext": "प्रबंधित करें कि आपातकाल के दौरान किसे सूचित किया जाए"
+      },
+      "medicalInfo": {
+        "text": "चिकित्सा जानकारी",
+        "subtext": "त्वरित पहुंच के लिए अपने चिकित्सा विवरण अपडेट करें"
+      }
+    },
+    "notifications": {
+      "title": "सूचनाएं",
+      "emergencyAlerts": {
+        "text": "आपातकालीन अलर्ट",
+        "subtext": "अधिकारियों से महत्वपूर्ण अलर्ट"
+      },
+      "hazardReports": {
+        "text": "खतरा रिपोर्ट",
+        "subtext": "आपके क्षेत्र से नई खतरा रिपोर्ट"
+      },
+      "familyUpdates": {
+        "text": "परिवार अपडेट",
+        "subtext": "आपके परिवार के सदस्यों से स्थिति अपडेट"
+      },
+      "systemUpdates": {
+        "text": "सिस्टम अपडेट",
+        "subtext": "ऐप अपडेट और नई सुविधा घोषणाएं"
+      },
+      "communityNews": {
+        "text": "सामुदायिक समाचार",
+        "subtext": "स्थानीय समाचार और सामुदायिक बुलेटिन"
+      }
+    },
+    "permissions": {
+      "title": "ऐप अनुमतियाँ",
+      "location": {
+        "text": "स्थान",
+        "subtext": "ऐप को आपके स्थान तक पहुंचने की अनुमति दें"
+      },
+      "camera": {
+        "text": "कैमरा",
+        "subtext": "ऐप को आपके कैमरे का उपयोग करने की अनुमति दें"
+      },
+      "notifications": {
+        "text": "सूचनाएं",
+        "subtext": "पुश सूचनाएं सक्षम करें"
+      },
+      "microphone": {
+        "text": "माइक्रोफोन",
+        "subtext": "ऐप को माइक्रोफोन का उपयोग करने की अनुमति दें"
+      }
+    }
+  },
+  "languages": {
+    "english": "अंग्रेजी",
+    "hindi": "हिंदी"
+  },
+  "roles": {
+    "chooseRole": "अपनी भूमिका चुनें",
+    "selectRoleDesc": "तटीय खतरों के प्रबंधन के लिए उपयुक्त सुविधाओं तक पहुंचने के लिए अपनी भूमिका चुनें।",
+    "keyFeaturesTitle": "मुख्य विशेषताएं:",
+    "registerButton": "{{role}} के रूप में रजिस्टर करें",
+    "citizen": {
+      "title": "नागरिक",
+      "description": "खतरों की रिपोर्ट करें, आपातकालीन सेवाओं तक पहुंचें",
+      "features": {
+        "reportHazards": "खतरों की रिपोर्ट करें",
+        "submitSOS": "एसओएस जमा करें",
+        "trackFamily": "परिवार को ट्रैक करें",
+        "makeDonations": "दान करें",
+        "emergencyDrills": "आपातकालीन अभ्यास"
+      }
+    },
+    "official": {
+      "title": "अधिकारी",
+      "description": "रिपोर्टों को मान्य करें, आपातकालीन प्रतिक्रियाएं प्रबंधित करें",
+      "features": {
+        "validateReports": "रिपोर्टों को मान्य करें",
+        "manageHotspots": "हॉटस्पॉट प्रबंधित करें",
+        "emergencyResponse": "आपातकालीन प्रतिक्रिया",
+        "resourceAllocation": "संसाधन आवंटन"
+      }
+    },
+    "analyst": {
+      "title": "विश्लेषक",
+      "description": "रुझानों की निगरानी करें, डेटा अंतर्दृष्टि का विश्लेषण करें",
+      "features": {
+        "socialMediaMonitoring": "सोशल मीडिया की निगरानी",
+        "trendAnalysis": "रुझान विश्लेषण",
+        "dataInsights": "डेटा अंतर्दृष्टि",
+        "generateReports": "रिपोर्ट बनाएं"
+      }
+    }
+  },
+  "login": {
+    "header": {
+      "title": "लॉगिन",
+      "subtitle": "डिजास्टर मैनेजर में आपका स्वागत है"
+    },
+    "welcome": "सहायक में आपका स्वागत है",
+    "usernameLabel": "उपयोगकर्ता नाम",
+    "usernamePlaceholder": "अपना उपयोगकर्ता नाम दर्ज करें",
+    "passwordLabel": "पासवर्ड",
+    "passwordPlaceholder": "अपना पासवर्ड दर्ज करें",
+    "forgotPassword": "पासवर्ड भूल गए?",
+    "mainButton": "लॉगिन",
+    "googleButton": "गूगल के साथ लॉगिन करें",
+    "otpButton": "ओटीपी के साथ लॉगिन करें",
+    "noAccountText": "खाता नहीं है?",
+    "registerLink": "रजिस्टर करें",
+    "alert": {
+      "failedTitle": "लॉगिन विफल",
+      "failedMessage": "जारी रखने के लिए कृपया एक उपयोगकर्ता नाम दर्ज करें।"
+    }
+  },
+  "profileConfirmation": {
+    "title": "जानकारी सहेजी गई!",
+    "message": "आपकी व्यक्तिगत और चिकित्सा जानकारी सफलतापूर्वक अपडेट कर दी गई है।",
+    "button": "प्रोफ़ाइल पर जाएं"
+  },
+
+  "register": {
+    "header": {
+      "title": "पंजीकरण",
+      "subtitle": "डिजास्टर मैनेजर से आज ही जुड़ें {{role}} के रूप में"
+    },
+    "cityLabel": "शहर *",
+    "cityPlaceholder": "अपना शहर दर्ज करें",
+    "stateLabel": "राज्य *",
+    "statePlaceholder": "अपना राज्य दर्ज करें",
+    "countryLabel": "देश *",
+    "countryPlaceholder": "अपना देश दर्ज करें",
+    "photoUpload": {
+      "label": "फोटो अपलोड करें *",
+      "required": "आवश्यक"
+    },
+    "fullNameLabel": "पूरा नाम",
+    "fullNamePlaceholder": "अपना पूरा नाम दर्ज करें",
+    "emailLabel": "ईमेल",
+    "emailPlaceholder": "अपना ईमेल दर्ज करें",
+    "phoneLabel": "फ़ोन नंबर",
+    "phonePlaceholder": "अपना फ़ोन नंबर दर्ज करें",
+    "passwordLabel": "पासवर्ड",
+    "passwordPlaceholder": "एक पासवर्ड बनाएं",
+    "confirmPasswordLabel": "पासवर्ड की पुष्टि करें",
+    "confirmPasswordPlaceholder": "अपने पासवर्ड की पुष्टि करें",
+    "registerButton": "रजिस्टर करें",
+    "nextButton": "अगला",
+    "googleButton": "गूगल के साथ रजिस्टर करें",
+    "haveAccountText": "पहले से ही एक खाता है?",
+    "loginLink": "लॉगिन",
+    "alert": {
+      "missingInfoTitle": "जानकारी गायब है",
+      "missingInfoMessage": "कृपया सभी आवश्यक फ़ील्ड भरें और एक फोटो अपलोड करें।",
+      "passwordMismatchTitle": "पासवर्ड बेमेल",
+      "passwordMismatchMessage": "पासवर्ड मेल नहीं खाते हैं।",
+      "successTitle": "पंजीकरण सफल",
+      "successMessage": "उपयोगकर्ता {{fullname}} {{role}} के रूप में पंजीकृत हो गया है।"
+    }
+  },
+    
+    "photoUpload": {
+      "label": "फोटो अपलोड करें *",
+      "required": "आवश्यक"
+    },
+    "fullNameLabel": "पूरा नाम",
+    "fullNamePlaceholder": "अपना पूरा नाम दर्ज करें",
+    "emailLabel": "ईमेल",
+    "emailPlaceholder": "अपना ईमेल दर्ज करें",
+    "phoneLabel": "फ़ोन नंबर",
+    "phonePlaceholder": "अपना फ़ोन नंबर दर्ज करें",
+    "passwordLabel": "पासवर्ड",
+    "passwordPlaceholder": "एक पासवर्ड बनाएं",
+    "confirmPasswordLabel": "पासवर्ड की पुष्टि करें",
+    "confirmPasswordPlaceholder": "अपने पासवर्ड की पुष्टि करें",
+    "registerButton": "रजिस्टर करें",
+    "nextButton": "अगला",
+    "googleButton": "गूगल के साथ रजिस्टर करें",
+    "haveAccountText": "पहले से ही एक खाता है?",
+    "loginLink": "लॉगिन",
+    "alert": {
+      "missingInfoTitle": "जानकारी गायब है",
+      "missingInfoMessage": "कृपया सभी आवश्यक फ़ील्ड भरें और एक फोटो अपलोड करें।",
+      "passwordMismatchTitle": "पासवर्ड बेमेल",
+      "passwordMismatchMessage": "पासवर्ड मेल नहीं खाते हैं।",
+      "successTitle": "पंजीकरण सफल",
+      "successMessage": "उपयोगकर्ता {{fullname}} {{role}} के रूप में पंजीकृत हो गया है।"
+    },
+    
+  "dashboard": {
+    "header": {
+      "appName": "सहायक",
+      "tagline": "आपदा प्रबंधन"
+    },
+    "welcome": {
+      "greeting": "नमस्ते, {{username}}",
+      "subtitle": "सुरक्षित रहें और खतरों की रिपोर्ट करके अपने समुदाय की मदद करें"
+    },
+    "status": {
+      "label": "स्थिति: सक्रिय",
+      "reportsCount": "इस महीने {{count}} रिपोर्ट"
+    },
+    "actions": {
+      "reportHazard": {
+        "title": "खतरे की रिपोर्ट करें",
+        "subtitle": "नई रिपोर्ट जमा करें"
+      },
+      "donate": {
+        "title": "दान करें",
+        "subtitle": "पीड़ितों की मदद करें"
+      },
+      "trackFamily": {
+        "title": "परिवार को ट्रैक करें",
+        "subtitle": "अपने प्रियजनों को ढूंढें"
+      },
+      "offlineMode": {
+        "title": "ऑफ़लाइन मोड",
+        "subtitle": "आपातकालीन बैकअप"
+      }
+    },
+    "nearby": {
+      "title": "आस-पास की गतिविधि",
+      "mapText": "इंटरएक्टिव मानचित्र",
+      "waveWarning": "ऊंची लहरों की चेतावनी",
+      "shelterAvailable": "आश्रय उपलब्ध है"
+    },
+    "reports": {
+      "title": "मेरी हाल की रिपोर्ट",
+      "newButton": "नया",
+      "item1": {
+        "title": "ऊंची लहरें",
+        "subtitle": "मरीना बीच"
+      },
+      "item2": {
+        "title": "बाढ़",
+        "subtitle": "ईसीआर रोड"
+      },
+      "statusVerified": "सत्यापित",
+      "statusPending": "लंबित",
+      "viewAllButton": "सभी रिपोर्ट देखें"
+    }
+  },
+  "donation": {
+    "headerTitle": "दान करें",
+    "totalDonatedLabel": "कुल दान की गई राशि",
+    "currencySymbol": "₹",
+    "amountLabel": "दान की राशि",
+    "amountPlaceholder": "राशि दर्ज करें",
+    "paymentMethodLabel": "भुगतान विधि",
+    "paymentMethods": {
+      "upi": "यूपीआई",
+      "gpay": "जीपे",
+      "crypto": "क्रिप्टो"
+    },
+    "purposeLabel": "उद्देश्य (वैकल्पिक)",
+    "purposePlaceholder": "उदा. चक्रवात राहत",
+    "donateButton": "अभी दान करें",
+    "alert": {
+      "incompleteTitle": "अधूरा फॉर्म",
+      "incompleteMessage": "कृपया एक वैध राशि दर्ज करें और एक भुगतान विधि चुनें।",
+      "successTitle": "दान की पुष्टि!",
+      "successMessage": "आपके {{currency}}{{amount}} के दान के लिए धन्यवाद।"
+    }
+  },
+  "report": {
+    "headerTitle": "खतरे की रिपोर्ट करें",
+    "eventTypeLabel": "घटना का प्रकार",
+    "eventTypes": {
+      "tsunami": "सुनामी",
+      "highWave": "ऊंची लहर",
+      "flooding": "बाढ़",
+      "stormSurge": "तूफानी लहर",
+      "sos": "एसओएस",
+      "other": "अन्य"
+    },
+    "categoryLabel": "रिपोर्ट श्रेणी",
+    "categories": {
+      "observation": "अवलोकन",
+      "sos": "एसओएस"
+    },
+    "descriptionLabel": "विवरण",
+    "descriptionPlaceholder": "खतरे का वर्णन करें",
+    "locationLabel": "आपका स्थान",
+    "locationNotAvailable": "स्थान उपलब्ध नहीं है",
+    "refreshButton": "ताज़ा करें",
+    "locationDescriptionLabel": "स्थान विवरण (वैकल्पिक)",
+    "locationDescriptionPlaceholder": "उदा. मरीना बीच के पास",
+    "mediaLabel": "मीडिया अपलोड करें (वैकल्पिक)",
+    "uploadImageButton": "छवि",
+    "uploadVideoButton": "वीडियो",
+    "selectedFilesTitle": "चयनित फ़ाइलें:",
+    "videoPlaceholder": "वीडियो",
+    "submitButton": "रिपोर्ट जमा करें",
+    "alert": {
+      "locationErrorTitle": "स्थान त्रुटि",
+      "locationErrorMessage": "आपका स्थान प्राप्त करने में विफल रहा। कृपया अपनी अनुमतियां जांचें।",
+      "incompleteFormTitle": "अधूरा फॉर्म",
+      "incompleteFormMessage": "कृपया सभी आवश्यक फ़ील्ड भरें और सुनिश्चित करें कि स्थान मिल गया है।",
+      "successTitle": "रिपोर्ट जमा की गई!",
+      "successMessage": "आपकी खतरे की रिपोर्ट सफलतापूर्वक जमा कर दी गई है।"
+    }
+  },
+  "sos": {
+    "headerTitle": "एसओएस",
+    "buttonText": "एसओएस",
+    "buttonSending": "भेजा जा रहा है...",
+    "receivedAlertsTitle": "प्राप्त अलर्ट",
+    "alertTimeAgo": "{{time}} मिनट पहले",
+    "alertSenderPrefix": "द्वारा",
+    "alertTypes": {
+      "sos": "एसओएस",
+      "floodAlert": "बाढ़ अलर्ट",
+      "highWave": "ऊंची लहर"
+    },
+    "alert": {
+      "sentTitle": "एसओएस भेजा गया",
+      "sentMessage": "आपके स्थान और विवरण के साथ एक अलर्ट आपके आपातकालीन संपर्कों और आस-पास के अधिकारियों को भेज दिया गया है।",
+      "okButton": "ठीक है"
+    }
+  },
+  "missingPerson": {
+    "headerTitle": "लापता व्यक्ति खोजक",
+    "headerSubtitle": "लापता व्यक्ति या पाए गए व्यक्ति की रिपोर्ट करके परिवारों को फिर से मिलाने में मदद करें।",
+    "reportMissing": {
+      "title": "लापता व्यक्ति की रिपोर्ट करें",
+      "description": "एक लापता व्यक्ति के लिए एक विस्तृत रिपोर्ट बनाएं।"
+    },
+    "foundSomeone": {
+      "title": "किसी को पाया",
+      "description": "आपके द्वारा पाए गए किसी व्यक्ति के बारे में जानकारी प्रदान करें।"
+    }
+  },
+  "offline": {
+    "status": {
+      "title": "कनेक्शन स्थिति",
+      "offlineMode": "ऑफ़लाइन मोड",
+      "offlineText": "ऑफ़लाइन मोड",
+      "onlineText": "ऑनलाइन",
+      "usingLocalData": "स्थानीय डेटा का उपयोग कर रहा है",
+      "servicesActive": "सभी सेवाएं सक्रिय हैं"
+    },
+    "details": {
+      "title": "आपके साझा किए गए विवरण",
+      "nameLabel": "नाम:",
+      "roleLabel": "भूमिका:",
+      "phoneLabel": "फ़ोन नंबर:",
+      "geolocationLabel": "भौगोलिक स्थान:",
+      "deviceIdLabel": "डिवाइस आईडी:"
+    },
+    "received": {
+      "title": "प्राप्त डेटा (आस-पास के उपकरणों से)",
+      "timeAgo": "{{time}} पहले",
+      "emptyText": "अभी तक कोई डेटा प्राप्त नहीं हुआ है।"
+    }
+  },
+  "medical": {
+    "headerTitle": "चिकित्सा विवरण",
+    "form": {
+      "bloodGroupLabel": "रक्त समूह *",
+      "allergiesLabel": "एलर्जी",
+      "allergiesPlaceholder": "उदा. पेनिसिलिन, मधुमक्खी के डंक",
+      "disabilitiesLabel": "विकलांगता",
+      "disabilitiesPlaceholder": "उदा. गतिशीलता में अक्षमता",
+      "pastMedicalRecordsLabel": "पिछला चिकित्सा रिकॉर्ड",
+      "pastMedicalRecordsPlaceholder": "पिछले चिकित्सा इतिहास का सारांश दें",
+      "hospitalNamesLabel": "अस्पताल के नाम",
+      "hospitalNamesPlaceholder": "उदा. अपोलो अस्पताल, फोर्टिस",
+      "medicalReportsLabel": "चिकित्सा रिपोर्ट",
+      "uploadButtonText": "फ़ाइल अपलोड करें (पीडीएफ/डीओसी)",
+      "saveButtonText": "विवरण सहेजें"
+    },
+    "alert": {
+      "incompleteTitle": "अधूरा फॉर्म",
+      "incompleteMessage": "कृपया एक रक्त समूह चुनें।",
+      "successTitle": "प्रोफ़ाइल अपडेट की गई!",
+      "successMessage": "आपकी चिकित्सा और व्यक्तिगत जानकारी सहेज ली गई है।"
+    }
+  },
+  "personal": {
+    "headerTitle": "व्यक्तिगत विवरण",
+    "form": {
+      "dobLabel": "जन्म तिथि *",
+      "dobPlaceholder": "YYYY-MM-DD",
+      "genderLabel": "लिंग *",
+      "genders": {
+        "male": "पुरुष",
+        "female": "महिला",
+        "other": "अन्य"
+      },
+      "heightLabel": "ऊंचाई (सेमी) *",
+      "heightPlaceholder": "उदा. 175",
+      "weightLabel": "वजन (किग्रा) *",
+      "weightPlaceholder": "उदा. 70",
+      "addressLabel": "पता *",
+      "addressPlaceholder": "सड़क का पता",
+      "cityLabel": "शहर",
+      "cityPlaceholder": "शहर",
+      "stateLabel": "राज्य",
+      "statePlaceholder": "राज्य",
+      "countryLabel": "देश",
+      "countryPlaceholder": "देश",
+      "emotionalStatusLabel": "भावनात्मक स्थिति",
+      "emotionalStatuses": {
+        "normal": "सामान्य",
+        "stressed": "तनावग्रस्त",
+        "anxious": "चिंतित",
+        "calm": "शांत"
+      },
+      "emergencyContactNameLabel": "आपातकालीन संपर्क का नाम",
+      "emergencyContactNamePlaceholder": "संपर्क का नाम",
+      "emergencyContactPhoneLabel": "आपातकालीन संपर्क फ़ोन",
+      "emergencyContactPhonePlaceholder": "संपर्क फ़ोन",
+      "nextButton": "अगला"
+    },
+    "alert": {
+      "incompleteTitle": "अधूरा फॉर्म",
+      "incompleteMessage": "कृपया सभी आवश्यक फ़ील्ड भरें।"
+    }
+  },
+  "profile": {
+    "headerTitle": "प्रोफ़ाइल",
+    "addButtonText": "अधिक जानकारी जोड़ें",
+    "sections": {
+      "personal": {
+        "title": "व्यक्तिगत विवरण",
+        "dobLabel": "जन्म तिथि: ",
+        "genderLabel": "लिंग: ",
+        "addressLabel": "पता: "
+      },
+      "medical": {
+        "title": "चिकित्सा विवरण",
+        "bloodGroupLabel": "रक्त समूह: ",
+        "allergiesLabel": "एलर्जी: "
+      }
+    },
+    "status": {
+      "notProvided": "प्रदान नहीं किया गया"
+    }
+  },
+  "resources": {
+    "headerTitle": "संसाधन",
+    "headerSubtitle": "तैयारी में आपकी मदद करने के लिए महत्वपूर्ण दस्तावेज और गाइड डाउनलोड करें।",
+    "packages": {
+      "survivalGuide": {
+        "title": "आपातकालीन उत्तरजीविता गाइड",
+        "description": "तटीय आपदा से पहले, दौरान और बाद में क्या करना है, इस पर एक व्यापक गाइड।"
+      },
+      "firstAid": {
+        "title": "प्राथमिक चिकित्सा आवश्यक वस्तुओं की सूची",
+        "description": "आपकी आपातकालीन किट के लिए आवश्यक प्राथमिक चिकित्सा वस्तुओं की एक सूची।"
+      },
+      "shelterInfo": {
+        "title": "स्थानीय आश्रय जानकारी",
+        "description": "आपके क्षेत्र में नामित आश्रयों और निकासी मार्गों की एक सूची।"
+      }
+    },
+    "downloadButtonText": "पैकेज डाउनलोड करें",
+    "alert": {
+      "downloadTitle": "डाउनलोड शुरू हो गया",
+      "downloadMessage": "डाउनलोड हो रहा है: {{fileUrl}}"
+    }
+  },
+  "simulation": {
+    "headerTitle": "सिमुलेशन अभ्यास",
+    "headerSubtitle": "इंटरैक्टिव गेम के माध्यम से तैयारी का अभ्यास करें और पुरस्कार अर्जित करें।",
+    "drills": {
+      "highTideHero": {
+        "title": "हाई टाइड हीरो",
+        "description": "एक उत्तरजीविता गेम जहां आप एक सुरक्षित स्थान खोजने और आवश्यक संसाधन एकत्र करने के लिए त्वरित निर्णय लेते हैं क्योंकि एक ऊंची लहर या तेज लहर आ रही है। गति और सटीकता के लिए अंक अर्जित करें।"
+      },
+      "coastalCommander": {
+        "title": "तटीय कमांडर",
+        "description": "एक रणनीति गेम जहां आप एक आपदा प्रबंधक के रूप में कार्य करते हैं। एक सिम्युलेटेड तूफानी लहर के लिए तैयार करने और प्रतिक्रिया देने के लिए बचाव दल, संसाधन और आश्रय स्थापित करें।"
+      },
+      "tsunamiTriviaRush": {
+        "title": "सुनामी ट्रिविया रश",
+        "description": "एक तेज-तर्रार प्रश्नोत्तरी खेल। सुनामी सुरक्षा, निकासी मार्गों और चेतावनी संकेतों के बारे में अपने ज्ञान का परीक्षण करें। आप जितनी तेजी से सही उत्तर देंगे, उतने अधिक अंक अर्जित करेंगे।"
+      }
+    },
+    "playButtonText": "अभ्यास खेलें"
+  },
+  "navigation": {
+    "dashboard": "डैशबोर्ड",
+    "family": "परिवार",
+    "sos": "एसओएस",
+    "offline": "ऑफ़लाइन",
+    "profile": "प्रोफ़ाइल"
+  },
+  "appHeader": {
+    "title": "स्वागत है",
+    "subtitle": "आपका कस्टम उपशीर्षक यहाँ आता है"
+  },
+  "drawer": {
+    "header": {
+      "title": "मेनू",
+      "subtitle": "नागरिक डैशबोर्ड"
+    },
+    "menuItems": {
+      "donations": "दान",
+      "simulationDrills": "सिमुलेशन अभ्यास",
+      "resources": "संसाधन",
+      "allReports": "सभी रिपोर्ट",
+      "missingPersonFinder": "लापता व्यक्ति खोजक",
+      "settings": "सेटिंग्स",
+      "logout": "लॉगआउट"
+    },
+    "status": {
+      "onlineText": "ऑनलाइन • सभी सेवाएं सक्रिय हैं"
+    }
+  },
+  "roleSpecificFields": {
+    "sectionTitle": "{{role}} के लिए अतिरिक्त जानकारी",
+    "labels": {
+      "designation": "पदनाम *",
+      "organizationName": "संगठन का नाम *",
+      "employeeId": "कर्मचारी आईडी *",
+      "idProofDocument": "आईडी प्रूफ दस्तावेज़ *",
+      "authorizationLetter": "अधिकार पत्र *"
+    },
+    "placeholders": {
+      "designation": "अपना पदनाम दर्ज करें",
+      "organizationName": "अपने संगठन का नाम दर्ज करें",
+      "employeeId": "अपना कर्मचारी आईडी दर्ज करें"
+    },
+    "documentUploads": {
+      "changeDocument": "दस्तावेज़ बदलें",
+      "uploadIdProof": "आईडी प्रूफ अपलोड करें",
+      "uploadAuthorizationLetter": "अधिकार पत्र अपलोड करें"
+    },
+    "requiredText": "आवश्यक"
+  }
+}

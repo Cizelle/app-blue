@@ -1,0 +1,523 @@
+{
+  "settings": {
+    "language": {
+      "title": "Language",
+      "changeLanguage": "Change Language"
+    },
+    "header": {
+      "title": "Settings",
+      "subtitle": "Manage your account, preferences, and permissions"
+    },
+    "account": {
+      "title": "Account Settings",
+      "editProfile": {
+        "text": "Edit Profile",
+        "subtext": "Update your personal information"
+      },
+      "emergencyContacts": {
+        "text": "Emergency Contacts",
+        "subtext": "Manage who gets notified during an emergency"
+      },
+      "medicalInfo": {
+        "text": "Medical Info",
+        "subtext": "Update your medical details for quick access"
+      }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "emergencyAlerts": {
+        "text": "Emergency Alerts",
+        "subtext": "Critical alerts from authorities"
+      },
+      "hazardReports": {
+        "text": "Hazard Reports",
+        "subtext": "New hazard reports from your area"
+      },
+      "familyUpdates": {
+        "text": "Family Updates",
+        "subtext": "Status updates from your family members"
+      },
+      "systemUpdates": {
+        "text": "System Updates",
+        "subtext": "App updates and new feature announcements"
+      },
+      "communityNews": {
+        "text": "Community News",
+        "subtext": "Local news and community bulletins"
+      }
+    },
+    "permissions": {
+      "title": "App Permissions",
+      "location": {
+        "text": "Location",
+        "subtext": "Allow app to access your location"
+      },
+      "camera": {
+        "text": "Camera",
+        "subtext": "Allow app to use your camera"
+      },
+      "notifications": {
+        "text": "Notifications",
+        "subtext": "Enable push notifications"
+      },
+      "microphone": {
+        "text": "Microphone",
+        "subtext": "Allow app to use microphone"
+      }
+    }
+  },
+  "languages": {
+    "english": "English",
+    "hindi": "Hindi"
+  },
+  "roles": {
+    "chooseRole": "Choose Your Role",
+    "selectRoleDesc": "Select your role to access the appropriate features for coastal hazard management.",
+    "keyFeaturesTitle": "Key Features:",
+    "registerButton": "Register as {{role}}",
+    "citizen": {
+      "title": "Citizen",
+      "description": "Report hazards, access emergency services",
+      "features": {
+        "reportHazards": "Report Hazards",
+        "submitSOS": "Submit SOS",
+        "trackFamily": "Track Family",
+        "makeDonations": "Make Donations",
+        "emergencyDrills": "Emergency Drills"
+      }
+    },
+    "official": {
+      "title": "Official",
+      "description": "Validate reports, manage emergency responses",
+      "features": {
+        "validateReports": "Validate Reports",
+        "manageHotspots": "Manage Hotspots",
+        "emergencyResponse": "Emergency Response",
+        "resourceAllocation": "Resource Allocation"
+      }
+    },
+    "analyst": {
+      "title": "Analyst",
+      "description": "Monitor trends, analyze data insights",
+      "features": {
+        "socialMediaMonitoring": "Social Media Monitoring",
+        "trendAnalysis": "Trend Analysis",
+        "dataInsights": "Data Insights",
+        "generateReports": "Generate Reports"
+      }
+    }
+  },
+  "login": {
+    "header": {
+      "title": "Login",
+      "subtitle": "Welcome back to Disaster Manager"
+    },
+    "welcome": "Welcome to Sahayak",
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Enter your username",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "forgotPassword": "Forgot password?",
+    "mainButton": "Login",
+    "googleButton": "Login with Google",
+    "otpButton": "Login with OTP",
+    "noAccountText": "Don’t have an account?",
+    "registerLink": "Register",
+    "alert": {
+      "failedTitle": "Login Failed",
+      "failedMessage": "Please enter a username to continue."
+    }
+  },
+  "profileConfirmation": {
+    "title": "Information Saved!",
+    "message": "Your personal and medical details have been successfully updated.",
+    "button": "Go to Profile"
+  },
+  "register": {
+    "header": {
+      "title": "Register",
+      "subtitle": "Join Disaster Manager today as a {{role}}"
+    },
+        "cityLabel": "City *",
+        "cityPlaceholder": "Enter your city",
+        "stateLabel": "State *",
+        "statePlaceholder": "Enter your state",
+        "countryLabel": "Country *",
+        "countryPlaceholder": "Enter your country"
+  },
+
+    "photoUpload": {
+      "label": "Upload Photo *",
+      "required": "Required"
+    },
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter your email",
+    "phoneLabel": "Phone Number",
+    "phonePlaceholder": "Enter your phone number",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Create a password",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "registerButton": "Register",
+    "nextButton": "Next",
+    "googleButton": "Register with Google",
+    "haveAccountText": "Already have an account?",
+    "loginLink": "Login",
+    "alert": {
+      "missingInfoTitle": "Missing Information",
+      "missingInfoMessage": "Please fill all required fields and upload a photo.",
+      "passwordMismatchTitle": "Password Mismatch",
+      "passwordMismatchMessage": "Passwords do not match.",
+      "successTitle": "Registration Successful",
+      "successMessage": "User {{fullname}} registered as {{role}}."
+    },
+  "dashboard": {
+    "header": {
+      "appName": "Sahayak",
+      "tagline": "Disaster Management"
+    },
+    "welcome": {
+      "greeting": "Namaste, {{username}}",
+      "subtitle": "Stay safe and help your community by reporting hazards"
+    },
+    "status": {
+      "label": "Status: Active",
+      "reportsCount": "{{count}} Reports this month"
+    },
+    "actions": {
+      "reportHazard": {
+        "title": "Report Hazard",
+        "subtitle": "Submit new report"
+      },
+      "donate": {
+        "title": "Donate",
+        "subtitle": "Help victims"
+      },
+      "trackFamily": {
+        "title": "Track Family",
+        "subtitle": "Find loved ones"
+      },
+      "offlineMode": {
+        "title": "Offline Mode",
+        "subtitle": "Emergency backup"
+      }
+    },
+    "nearby": {
+      "title": "Nearby Activity",
+      "mapText": "Interactive Map",
+      "waveWarning": "High Wave Warning",
+      "shelterAvailable": "Shelter Available"
+    },
+    "reports": {
+      "title": "My Recent Reports",
+      "newButton": "New",
+      "item1": {
+        "title": "High Waves",
+        "subtitle": "Marina Beach"
+      },
+      "item2": {
+        "title": "Flooding",
+        "subtitle": "ECR Road"
+      },
+      "statusVerified": "Verified",
+      "statusPending": "Pending",
+      "viewAllButton": "View All Reports"
+    }
+  },
+  "donation": {
+    "headerTitle": "Donate",
+    "totalDonatedLabel": "Total Amount Donated",
+    "currencySymbol": "₹",
+    "amountLabel": "Donation Amount",
+    "amountPlaceholder": "Enter amount",
+    "paymentMethodLabel": "Payment Method",
+    "paymentMethods": {
+      "upi": "UPI",
+      "gpay": "GPay",
+      "crypto": "Crypto"
+    },
+    "purposeLabel": "Purpose (Optional)",
+    "purposePlaceholder": "e.g. Cyclone relief",
+    "donateButton": "Donate Now",
+    "alert": {
+      "incompleteTitle": "Incomplete Form",
+      "incompleteMessage": "Please enter a valid amount and select a payment method.",
+      "successTitle": "Donation Confirmed!",
+      "successMessage": "Thank you for your donation of {{currency}}{{amount}}."
+    }
+  },
+  "report": {
+    "headerTitle": "Report Hazard",
+    "eventTypeLabel": "Event Type",
+    "eventTypes": {
+      "tsunami": "Tsunami",
+      "highWave": "High Wave",
+      "flooding": "Flooding",
+      "stormSurge": "Storm Surge",
+      "sos": "SOS",
+      "other": "Other"
+    },
+    "categoryLabel": "Report Category",
+    "categories": {
+      "observation": "Observation",
+      "sos": "SOS"
+    },
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Describe the hazard",
+    "locationLabel": "Your Location",
+    "locationNotAvailable": "Location not available",
+    "refreshButton": "Refresh",
+    "locationDescriptionLabel": "Location Description (Optional)",
+    "locationDescriptionPlaceholder": "e.g. Near Marina Beach",
+    "mediaLabel": "Upload Media (Optional)",
+    "uploadImageButton": "Image",
+    "uploadVideoButton": "Video",
+    "selectedFilesTitle": "Selected Files:",
+    "videoPlaceholder": "Video",
+    "submitButton": "Submit Report",
+    "alert": {
+      "locationErrorTitle": "Location Error",
+      "locationErrorMessage": "Failed to get your location. Please check your permissions.",
+      "incompleteFormTitle": "Incomplete Form",
+      "incompleteFormMessage": "Please fill all required fields and ensure location is found.",
+      "successTitle": "Report Submitted!",
+      "successMessage": "Your hazard report has been submitted successfully."
+    }
+  },
+  "sos": {
+    "headerTitle": "SOS",
+    "buttonText": "SOS",
+    "buttonSending": "Sending...",
+    "receivedAlertsTitle": "Received Alerts",
+    "alertTimeAgo": "{{time}} mins ago",
+    "alertSenderPrefix": "by",
+    "alertTypes": {
+      "sos": "SOS",
+      "floodAlert": "Flood Alert",
+      "highWave": "High Wave"
+    },
+    "alert": {
+      "sentTitle": "SOS Sent",
+      "sentMessage": "An alert with your location and details has been sent to your emergency contacts and nearby authorities.",
+      "okButton": "OK"
+    }
+  },
+  "missingPerson": {
+    "headerTitle": "Missing Person Finder",
+    "headerSubtitle": "Help reunite families by reporting a missing person or a found individual.",
+    "reportMissing": {
+      "title": "Report Missing",
+      "description": "Create a detailed report for a person who is missing."
+    },
+    "foundSomeone": {
+      "title": "Found Someone",
+      "description": "Provide information about someone you have found."
+    }
+  },
+  "offline": {
+    "status": {
+      "title": "Connection Status",
+      "offlineMode": "Offline Mode",
+      "offlineText": "Offline Mode",
+      "onlineText": "Online",
+      "usingLocalData": "Using local data",
+      "servicesActive": "All services active"
+    },
+    "details": {
+      "title": "Your Shared Details",
+      "nameLabel": "Name:",
+      "roleLabel": "Role:",
+      "phoneLabel": "Phone No.:",
+      "geolocationLabel": "Geolocation:",
+      "deviceIdLabel": "Device ID:"
+    },
+    "received": {
+      "title": "Received Data (from nearby devices)",
+      "timeAgo": "{{time}} ago",
+      "emptyText": "No data received yet."
+    }
+  },
+  "medical": {
+    "headerTitle": "Medical Details",
+    "form": {
+      "bloodGroupLabel": "Blood Group *",
+      "allergiesLabel": "Allergies",
+      "allergiesPlaceholder": "e.g. Penicillin, bee stings",
+      "disabilitiesLabel": "Disabilities",
+      "disabilitiesPlaceholder": "e.g. Mobility impairment",
+      "pastMedicalRecordsLabel": "Past Medical Records",
+      "pastMedicalRecordsPlaceholder": "Summarize past medical history",
+      "hospitalNamesLabel": "Hospital Names",
+      "hospitalNamesPlaceholder": "e.g. Apollo Hospital, Fortis",
+      "medicalReportsLabel": "Medical Reports",
+      "uploadButtonText": "Upload File (PDF/DOC)",
+      "saveButtonText": "Save Details"
+    },
+    "alert": {
+      "incompleteTitle": "Incomplete Form",
+      "incompleteMessage": "Please select a blood group.",
+      "successTitle": "Profile Updated!",
+      "successMessage": "Your medical and personal information has been saved."
+    }
+  },
+  "personal": {
+    "headerTitle": "Personal Details",
+    "form": {
+      "dobLabel": "Date of Birth *",
+      "dobPlaceholder": "YYYY-MM-DD",
+      "genderLabel": "Gender *",
+      "genders": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
+      },
+      "heightLabel": "Height (cm) *",
+      "heightPlaceholder": "e.g. 175",
+      "weightLabel": "Weight (kg) *",
+      "weightPlaceholder": "e.g. 70",
+      "addressLabel": "Address *",
+      "addressPlaceholder": "Street Address",
+      "cityLabel": "City",
+      "cityPlaceholder": "City",
+      "stateLabel": "State",
+      "statePlaceholder": "State",
+      "countryLabel": "Country",
+      "countryPlaceholder": "Country",
+      "emotionalStatusLabel": "Emotional Status",
+      "emotionalStatuses": {
+        "normal": "NORMAL",
+        "stressed": "STRESSED",
+        "anxious": "ANXIOUS",
+        "calm": "CALM"
+      },
+      "emergencyContactNameLabel": "Emergency Contact Name",
+      "emergencyContactNamePlaceholder": "Contact Name",
+      "emergencyContactPhoneLabel": "Emergency Contact Phone",
+      "emergencyContactPhonePlaceholder": "Contact Phone",
+      "nextButton": "Next"
+    },
+    "alert": {
+      "incompleteTitle": "Incomplete Form",
+      "incompleteMessage": "Please fill in all required fields."
+    }
+  },
+  "profile": {
+    "headerTitle": "Profile",
+    "addButtonText": "Add More Info",
+    "sections": {
+      "personal": {
+        "title": "Personal Details",
+        "dobLabel": "Date of Birth: ",
+        "genderLabel": "Gender: ",
+        "addressLabel": "Address: "
+      },
+      "medical": {
+        "title": "Medical Details",
+        "bloodGroupLabel": "Blood Group: ",
+        "allergiesLabel": "Allergies: "
+      }
+    },
+    "status": {
+      "notProvided": "Not provided"
+    }
+  },
+  "resources": {
+    "headerTitle": "Resources",
+    "headerSubtitle": "Download important documents and guides to help you prepare.",
+    "packages": {
+      "survivalGuide": {
+        "title": "Emergency Survival Guide",
+        "description": "A comprehensive guide on what to do before, during, and after a coastal disaster."
+      },
+      "firstAid": {
+        "title": "First Aid Essentials Checklist",
+        "description": "A checklist of essential first-aid items for your emergency kit."
+      },
+      "shelterInfo": {
+        "title": "Local Shelter Information",
+        "description": "A list of designated shelters and evacuation routes in your area."
+      }
+    },
+    "downloadButtonText": "Download Package",
+    "alert": {
+      "downloadTitle": "Download Started",
+      "downloadMessage": "Downloading: {{fileUrl}}"
+    }
+  },
+  "simulation": {
+    "headerTitle": "Simulation Drills",
+    "headerSubtitle": "Practice preparedness and earn rewards through interactive games.",
+    "drills": {
+      "highTideHero": {
+        "title": "High Tide Hero",
+        "description": "A survival game where you make quick decisions to find a safe location and collect essential resources as a high wave or swell surge approaches. Earn points for speed and accuracy."
+      },
+      "coastalCommander": {
+        "title": "Coastal Commander",
+        "description": "A strategy game where you act as a disaster manager. Allocate rescue teams, resources, and set up shelters to prepare for and respond to a simulated storm surge."
+      },
+      "tsunamiTriviaRush": {
+        "title": "Tsunami Trivia Rush",
+        "description": "A fast-paced quiz game. Test your knowledge of tsunami safety, evacuation routes, and warning signs. The faster you answer correctly, the more points you earn."
+      }
+    },
+    "playButtonText": "Play Drill"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "family": "Family",
+    "sos": "SOS",
+    "offline": "Offline",
+    "profile": "Profile"
+  },
+  
+  "appHeader": {
+    "title": "Welcome",
+    "subtitle": "Your custom subtitle goes here"
+    },
+    
+  "drawer": {
+    "header": {
+      "title": "Menu",
+      "subtitle": "Citizen Dashboard"
+    },
+    "menuItems": {
+      "donations": "Donations",
+      "simulationDrills": "Simulation Drills",
+      "resources": "Resources",
+      "allReports": "All Reports",
+      "missingPersonFinder": "Missing Person Finder",
+      "settings": "Settings",
+      "logout": "Logout"
+    },
+    "status": {
+      "onlineText": "Online • All services active"
+    }
+  },
+  
+  "roleSpecificFields": {
+    "sectionTitle": "Additional Information for {{role}}",
+    "labels": {
+      "designation": "Designation *",
+      "organizationName": "Organization Name *",
+      "employeeId": "Employee ID *",
+      "idProofDocument": "ID Proof Document *",
+      "authorizationLetter": "Authorization Letter *"
+    },
+    "placeholders": {
+      "designation": "Enter your designation",
+      "organizationName": "Enter your organization's name",
+      "employeeId": "Enter your employee ID"
+    },
+    "documentUploads": {
+      "changeDocument": "Change Document",
+      "uploadIdProof": "Upload ID Proof",
+      "uploadAuthorizationLetter": "Upload Authorization Letter"
+    },
+    "requiredText": "Required"
+  }
+
+
+}
