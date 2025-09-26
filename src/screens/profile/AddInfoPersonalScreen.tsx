@@ -5,7 +5,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useTranslation } from 'react-i18next';
 
 const genders = ['Male', 'Female', 'Other'];
-const emotionalStatuses = ['NORMAL', 'STRESSED', 'ANXIOUS', 'CALM'];
 
 const AddInfoPersonalScreen = () => {
   const { t } = useTranslation();
@@ -18,7 +17,7 @@ const AddInfoPersonalScreen = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [country, setCountry] = useState('');
-  const [emotionalStatus, setEmotionalStatus] = useState('NORMAL');
+  const [emotionalStatus] = useState('NORMAL');
   const [emergencyContactName, setEmergencyContactName] = useState('');
   const [emergencyContactPhone, setEmergencyContactPhone] = useState('');
 
@@ -79,18 +78,7 @@ const AddInfoPersonalScreen = () => {
         <Text style={styles.inputLabel}>{t('personal.form.countryLabel')}</Text>
         <TextInput style={styles.input} placeholder={t('personal.form.countryPlaceholder')} value={country} onChangeText={setCountry} />
         
-        <Text style={styles.inputLabel}>{t('personal.form.emotionalStatusLabel')}</Text>
-        <View style={styles.selectorContainer}>
-          {emotionalStatuses.map((status) => (
-            <TouchableOpacity
-              key={status}
-              style={[styles.selectorButton, emotionalStatus === status && styles.selectorButtonActive]}
-              onPress={() => setEmotionalStatus(status)}
-            >
-              <Text style={[styles.selectorButtonText, emotionalStatus === status && styles.selectorButtonTextActive]}>{t(`personal.form.emotionalStatuses.${status.toLowerCase()}`)}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
+        
 
         <Text style={styles.inputLabel}>{t('personal.form.emergencyContactNameLabel')}</Text>
         <TextInput style={styles.input} placeholder={t('personal.form.emergencyContactNamePlaceholder')} value={emergencyContactName} onChangeText={setEmergencyContactName} />

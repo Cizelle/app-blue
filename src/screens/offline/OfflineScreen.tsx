@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Switch, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -45,7 +46,6 @@ const OfflineScreen = () => {
   );
 
   return (
-    // FIX: Use SafeAreaView and the FlatList itself for scrolling
     <SafeAreaView style={styles.container}>
       {/* Connection Status Section */}
       <View style={styles.sectionContainer}>
@@ -100,8 +100,8 @@ const OfflineScreen = () => {
         </View>
       </View>
 
-      {/* Section 2: Received Data */}
-      <View style={styles.sectionContainer}>
+      {/* Section 2: Received Data - **This is the corrected section.** */}
+      <View style={[styles.sectionContainer, styles.flatListSection]}>
         <Text style={styles.sectionTitle}>{t('offline.received.title')}</Text>
         <FlatList
           data={receivedData}
@@ -110,7 +110,6 @@ const OfflineScreen = () => {
           ListEmptyComponent={() => (
             <Text style={styles.emptyText}>{t('offline.received.emptyText')}</Text>
           )}
-          // Removed scrollEnabled={false} and the wrapping <ScrollView>
         />
       </View>
     </SafeAreaView>
@@ -133,6 +132,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
+  },
+  // NEW STYLE FOR FLATLIST SECTION
+  flatListSection: {
+    flex: 1, // Added flex: 1 to the container of the FlatList
   },
   sectionTitle: {
     fontSize: 18,
@@ -223,4 +226,3 @@ const styles = StyleSheet.create({
 });
 
 export default OfflineScreen;
-

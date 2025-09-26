@@ -5,7 +5,6 @@ import {
 } from 'react-native';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useTranslation } from 'react-i18next';
 
 // Define the types for navigation based on your project structure
 // Assuming a Drawer Navigator is used for the main app screens
@@ -26,8 +25,6 @@ const familyMembersData = [
 ];
 
 const FamilyTrackerScreen: React.FC<Props> = ({ navigation }) => {
-  const { t } = useTranslation();
-
   // Calculate the status counts based on the data
   const statusCounts = familyMembersData.reduce((acc, member) => {
     if (member.status === 'safe') acc.safe++;
@@ -38,23 +35,23 @@ const FamilyTrackerScreen: React.FC<Props> = ({ navigation }) => {
 
   const handleAddMember = () => {
     // Logic to open a modal or navigate to a screen to add a new family member
-    Alert.alert(t('familyTracker.addMemberTitle'), t('familyTracker.addMemberMessage'));
+    Alert.alert('Add Family Member', 'Navigate to a screen to add a new member.');
   };
 
   const handleSendAlert = () => {
-    Alert.alert(t('familyTracker.sendAlertTitle'), t('familyTracker.sendAlertMessage'));
+    Alert.alert('Send Alert', 'Alert sent to family members.');
   };
 
   const handleLeaveFamily = () => {
-    Alert.alert(t('familyTracker.leaveFamilyTitle'), t('familyTracker.leaveFamilyMessage'), [
-      { text: t('common.cancel'), style: 'cancel' },
-      { text: t('common.confirm'), onPress: () => console.log('Left family') },
+    Alert.alert('Leave Family Group', 'Are you sure you want to leave this family group?', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Confirm', onPress: () => console.log('Left family') },
     ]);
   };
 
   const renderMemberCard = ({ item }: { item: typeof familyMembersData[0] }) => {
     const statusColor = item.status === 'safe' ? '#2ecc71' : item.status === 'at-risk' ? '#f39c12' : '#e74c3c';
-    const statusTextKey = `familyTracker.status.${item.status}`;
+    const statusText = item.status === 'safe' ? 'Safe' : item.status === 'at-risk' ? 'At Risk' : 'Missing';
     const initials = item.name.split(' ').map(n => n[0]).join('');
 
     return (
@@ -66,7 +63,7 @@ const FamilyTrackerScreen: React.FC<Props> = ({ navigation }) => {
           <View style={styles.nameRow}>
             <Text style={styles.memberName}>{item.name}</Text>
             <Text style={[styles.statusBadge, { backgroundColor: statusColor }]}>
-              {t(statusTextKey)}
+              {statusText}
             </Text>
           </View>
           <Text style={styles.memberDetails}>{item.relation} • {item.lastUpdated}</Text>
@@ -75,7 +72,7 @@ const FamilyTrackerScreen: React.FC<Props> = ({ navigation }) => {
           <Text style={styles.memberDetails}>Email: {item.email}</Text>
           <Text style={styles.memberDetails}>Device ID: {item.deviceId}</Text>
         </View>
-        <TouchableOpacity onPress={() => Alert.alert(t('familyTracker.call'), `Calling ${item.name}`)}>
+        <TouchableOpacity onPress={() => Alert.alert('Call', `Calling ${item.name}`)}>
           <Icon name="phone-circle" size={30} color={statusColor} />
         </TouchableOpacity>
       </View>
@@ -90,7 +87,7 @@ const FamilyTrackerScreen: React.FC<Props> = ({ navigation }) => {
           <Icon name="menu" size={28} color="#333" />
         </TouchableOpacity>
         <Icon name="waves" size={30} color="#138D35" style={styles.logoIcon} />
-        <Text style={styles.headerTitle}>{t('familyTracker.header.title')}</Text>
+        <Text style={styles.headerTitle}>Family Tracker</Text>
         <View style={styles.demoNavPlaceholder} />
       </View>
 
@@ -99,21 +96,21 @@ const FamilyTrackerScreen: React.FC<Props> = ({ navigation }) => {
         <View style={styles.statusTrackerCard}>
           <Icon name="account-group-outline" size={30} color="#fff" />
           <View style={styles.statusInfo}>
-            <Text style={styles.trackerTitle}>{t('familyTracker.trackerTitle')}</Text>
-            <Text style={styles.trackerSubtitle}>{t('familyTracker.trackerSubtitle')}</Text>
+            <Text style={styles.trackerTitle}>Family Status</Text>
+            <Text style={styles.trackerSubtitle}>Quick overview of your family's safety.</Text>
           </View>
           <View style={styles.statusCountsContainer}>
             <View style={styles.statusCountItem}>
               <Text style={styles.statusCountText}>{statusCounts.safe}</Text>
-              <Text style={styles.statusLabelText}>{t('familyTracker.status.safe')}</Text>
+              <Text style={styles.statusLabelText}>Safe</Text>
             </View>
             <View style={styles.statusCountItem}>
               <Text style={styles.statusCountText}>{statusCounts.atRisk}</Text>
-              <Text style={styles.statusLabelText}>{t('familyTracker.status.atRisk')}</Text>
+              <Text style={styles.statusLabelText}>At Risk</Text>
             </View>
             <View style={styles.statusCountItem}>
               <Text style={styles.statusCountText}>{statusCounts.missing}</Text>
-              <Text style={styles.statusLabelText}>{t('familyTracker.status.missing')}</Text>
+              <Text style={styles.statusLabelText}>Missing</Text>
             </View>
           </View>
         </View>
@@ -122,13 +119,13 @@ const FamilyTrackerScreen: React.FC<Props> = ({ navigation }) => {
         <View style={styles.sectionContainer}>
           <TouchableOpacity style={styles.addButton} onPress={handleAddMember}>
             <Icon name="account-plus-outline" size={20} color="#fff" style={styles.addButtonIcon} />
-            <Text style={styles.addButtonText}>{t('familyTracker.addButton')}</Text>
+            <Text style={styles.addButtonText}>Add Family Member</Text>
           </TouchableOpacity>
         </View>
 
         {/* Family Members List (Horizontal) */}
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>{t('familyTracker.memberListTitle')}</Text>
+          <Text style={styles.sectionTitle}>Family Members</Text>
           <FlatList
             horizontal
             data={familyMembersData}
@@ -142,19 +139,19 @@ const FamilyTrackerScreen: React.FC<Props> = ({ navigation }) => {
         {/* Placeholder for Map */}
         <View style={[styles.sectionContainer, styles.mapPlaceholder]}>
           <Icon name="map-marker-radius-outline" size={50} color="#ccc" />
-          <Text style={styles.placeholderText}>{t('familyTracker.mapPlaceholder')}</Text>
+          <Text style={styles.placeholderText}>Map of Family Member Locations</Text>
         </View>
 
         {/* Emergency Actions */}
         <View style={styles.sectionContainer}>
-          <Text style={styles.sectionTitle}>{t('familyTracker.emergencyActionsTitle')}</Text>
+          <Text style={styles.sectionTitle}>Emergency Actions</Text>
           <TouchableOpacity style={[styles.emergencyButton, styles.sendAlertButton]} onPress={handleSendAlert}>
             <Icon name="bell-alert-outline" size={20} color="#fff" style={styles.emergencyIcon} />
-            <Text style={styles.emergencyButtonText}>{t('familyTracker.sendAlert')}</Text>
+            <Text style={styles.emergencyButtonText}>Send Group Alert</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[styles.emergencyButton, styles.leaveFamilyButton]} onPress={handleLeaveFamily}>
             <Icon name="account-remove-outline" size={20} color="#fff" style={styles.emergencyIcon} />
-            <Text style={styles.emergencyButtonText}>{t('familyTracker.leaveFamily')}</Text>
+            <Text style={styles.emergencyButtonText}>Leave Family Group</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

@@ -13,25 +13,46 @@ const DonationScreen = () => {
   const [amount, setAmount] = useState('');
   const [currency, setCurrency] = useState('INR');
   const [paymentMethod, setPaymentMethod] = useState('');
+  const [upiId, setUpiId] = useState(''); // New state for UPI ID
   const [purpose, setPurpose] = useState('');
   const [totalDonated, setTotalDonated] = useState(0);
 
-  const paymentMethods = [t('donation.paymentMethods.upi'), t('donation.paymentMethods.gpay'), t('donation.paymentMethods.crypto')];
+  const paymentMethods = [
+    { name: t('donation.paymentMethods.upi'), key: 'upi' },
+    { name: t('donation.paymentMethods.gpay'), key: 'gpay' },
+    { name: t('donation.paymentMethods.crypto'), key: 'crypto' }
+  ];
 
   const handleDonate = () => {
     const donationAmount = parseFloat(amount);
-    if (isNaN(donationAmount) || donationAmount <= 0 || !paymentMethod) {
+
+    if (isNaN(donationAmount) || donationAmount <= 0) {
       Alert.alert(t('donation.alert.incompleteTitle'), t('donation.alert.incompleteMessage'));
       return;
     }
-    Alert.alert(
-      t('donation.alert.successTitle'),
-      t('donation.alert.successMessage', { amount: donationAmount.toFixed(2), currency: t('donation.currencySymbol') })
-    );
-    setTotalDonated(prev => prev + donationAmount);
-    setAmount('');
-    setPaymentMethod('');
-    setPurpose('');
+
+    // Handle navigation based on payment method
+    if (paymentMethod === 'upi') {
+      if (!upiId) {
+        Alert.alert(t('donation.alert.upiRequiredTitle'), t('donation.alert.upiRequiredMessage'));
+        return;
+      }
+      navigation.navigate('UpiPayment', {
+        amount: donationAmount,
+        upiId: upiId,
+      });
+    } else {
+      // For other payment methods, just show a confirmation
+      Alert.alert(
+        t('donation.alert.successTitle'),
+        t('donation.alert.successMessage', { amount: donationAmount.toFixed(2), currency: t('donation.currencySymbol') })
+      );
+      setTotalDonated(prev => prev + donationAmount);
+      setAmount('');
+      setPaymentMethod('');
+      setUpiId('');
+      setPurpose('');
+    }
   };
 
   return (
@@ -63,24 +84,38 @@ const DonationScreen = () => {
         <View style={styles.selectorContainer}>
           {paymentMethods.map((method) => (
             <TouchableOpacity
-              key={method}
+              key={method.key}
               style={[
                 styles.selectorButton,
-                paymentMethod === method && styles.selectorButtonActive,
+                paymentMethod === method.key && styles.selectorButtonActive,
               ]}
-              onPress={() => setPaymentMethod(method)}
+              onPress={() => setPaymentMethod(method.key)}
             >
               <Text
                 style={[
                   styles.selectorButtonText,
-                  paymentMethod === method && styles.selectorButtonTextActive,
+                  paymentMethod === method.key && styles.selectorButtonTextActive,
                 ]}
               >
-                {method}
+                {method.name}
               </Text>
             </TouchableOpacity>
           ))}
         </View>
+
+        {/* Conditional rendering for UPI ID input */}
+        {paymentMethod === 'upi' && (
+          <>
+            <Text style={styles.inputLabel}>UPI ID *</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="e.g., yourname@bank"
+              keyboardType="email-address"
+              value={upiId}
+              onChangeText={setUpiId}
+            />
+          </>
+        )}
 
         <Text style={styles.inputLabel}>{t('donation.purposeLabel')}</Text>
         <TextInput

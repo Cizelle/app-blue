@@ -8,7 +8,6 @@ import MainDrawerNavigator from './src/navigation/MainTabNavigator';
 import './src/i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Define the User interface here since it's only used in App.tsx now
 interface User {
   id: string;
   email: string;
@@ -17,8 +16,7 @@ interface User {
 }
 
 export type RootStackParamList = {
-  // Update the Login screen to accept the onLogin function
-  Login: { onLogin: (user: User) => void };
+  Login: undefined;
   ChooseRole: undefined;
   Register: { role: 'citizen' | 'official' | 'analyst' };
   MainTabs: { user: User };
@@ -78,12 +76,11 @@ const App = () => {
           <>
             <Stack.Screen
               name="Login"
-              // The 'component' prop is the preferred way to render screens.
-              // We'll use initialParams to pass the onLogin function.
-              component={LoginScreen}
-              initialParams={{ onLogin: authProps.onLogin }}
+              // Pass the onLogin function to the LoginScreen
               options={{ gestureEnabled: false }}
-            />
+            >
+              {props => <LoginScreen {...props} onLogin={authProps.onLogin} />}
+            </Stack.Screen>
             <Stack.Screen name="ChooseRole" component={ChooseRoleScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />
           </>

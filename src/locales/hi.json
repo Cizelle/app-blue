@@ -8,6 +8,8 @@
       "title": "सेटिंग्स",
       "subtitle": "अपना खाता, प्राथमिकताएं और अनुमतियाँ प्रबंधित करें"
     },
+
+    
     "account": {
       "title": "खाता सेटिंग्स",
       "editProfile": {
@@ -543,5 +545,106 @@
       "uploadAuthorizationLetter": "अधिकार पत्र अपलोड करें"
     },
     "requiredText": "आवश्यक"
+  }, 
+
+  "dashboard": {
+    "header": {
+      "appName": "सहायक",
+      "tagline": "आपकी सुरक्षा, हमारी प्राथमिकता"
+    },
+    "welcome": {
+      "greeting": "नमस्ते, {{username}}",
+      "subtitle": "सूचित रहें, सुरक्षित रहें"
+    },
+    "status": {
+      "label": "लाइव स्थिति",
+      "reportsCount": "{{count}} रिपोर्ट"
+    },
+    "actions": {
+      "reportHazard": {
+        "title": "खतरे की रिपोर्ट करें",
+        "subtitle": "अधिकारियों को खतरे की जानकारी दें"
+      },
+      "donate": {
+        "title": "दान करें",
+        "subtitle": "जरूरतमंद समुदायों की मदद करें"
+      },
+      "trackFamily": {
+        "title": "परिवार ट्रैकर",
+        "subtitle": "अपने प्रियजनों पर नज़र रखें"
+      },
+      "offlineMode": {
+        "title": "ऑफलाइन मोड",
+        "subtitle": "प्रमुख जानकारी ऑफ़लाइन देखें"
+      }
+    },
+    "nearby": {
+      "title": "आस-पास की गतिविधि",
+      "mapText": "मानचित्र पूर्वावलोकन",
+      "waveWarning": "ऊँची लहरों की चेतावनी",
+      "shelterAvailable": "शरण उपलब्ध है"
+    },
+    "reports": {
+      "title": "मेरी हाल की रिपोर्टें",
+      "newButton": "नई रिपोर्ट",
+      "item1": {
+        "title": "सिटी सेंटर में बाढ़",
+        "subtitle": "स्थिति अपडेट लंबित है"
+      },
+      "item2": {
+        "title": "ब्रिज ए के पास रोडब्लॉक",
+        "subtitle": "हमारी टीम द्वारा सत्यापित"
+      },
+      "statusVerified": "सत्यापित",
+      "statusPending": "लंबित",
+      "viewAllButton": "सभी रिपोर्ट देखें"
+    }
+  },
+  "donation": {
+    "headerTitle": "दान करें",
+    "totalDonatedLabel": "कुल दान",
+    "currencySymbol": "₹",
+    "amountLabel": "राशि",
+    "amountPlaceholder": "जैसे 100",
+    "paymentMethodLabel": "भुगतान विधि",
+    "paymentMethods": {
+      "upi": "यूपीआई",
+      "gpay": "जीपे",
+      "crypto": "क्रिप्टो"
+    },
+    "purposeLabel": "उद्देश्य (वैकल्पिक)",
+    "purposePlaceholder": "जैसे बाढ़ राहत कोष",
+    "donateButton": "अभी दान करें",
+    "alert": {
+      "incompleteTitle": "अधूरा दान",
+      "incompleteMessage": "जारी रखने के लिए कृपया सभी आवश्यक फ़ील्ड भरें।",
+      "successTitle": "धन्यवाद!",
+      "successMessage": "आपका {{amount}}{{currency}} का दान सफल रहा।",
+      "upiRequiredTitle": "यूपीआई आईडी आवश्यक है",
+      "upiRequiredMessage": "कृपया भुगतान के लिए आगे बढ़ने के लिए अपनी यूपीआई आईडी दर्ज करें।"
+    }
+  },
+  "upiPayment": {
+    "headerTitle": "सुरक्षित भुगतान",
+    "timerTitle": "भुगतान की प्रतीक्षा में",
+    "instructions": "समय सीमा के भीतर भुगतान पूरा करने के लिए कृपया अपना यूपीआई ऐप खोलें।",
+    "amountLabel": "राशि",
+    "upiIdLabel": "यूपीआई आईडी",
+    "successTitle": "भुगतान सफल रहा!",
+    "successMessage": "आपका ₹{{amount}} का दान प्राप्त हो गया है।",
+    "doneButton": "हो गया"
+  },
+  "navigation": {
+    "dashboard": "डैशबोर्ड",
+    "family": "परिवार",
+    "sos": "एसओएस",
+    "offline": "ऑफ़लाइन",
+    "profile": "प्रोफ़ाइल"
+  },
+  "offlineScreen": {
+    "title": "आप ऑफ़लाइन हैं",
+    "subtitle": "कुछ सुविधाएँ उपलब्ध नहीं हो सकती हैं। लाइव अपडेट प्राप्त करने के लिए पुनः कनेक्ट करें।"
   }
+
 }
+

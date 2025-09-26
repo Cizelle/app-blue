@@ -8,22 +8,88 @@ import AppHeader from '../../components/AppHeader';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useTranslation } from 'react-i18next';
 import { Picker } from '@react-native-picker/picker';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// Define the User type to be consistent
-interface User {
+// ====================================================================
+// Define the TypeScript types for the API response data
+// ====================================================================
+
+// Define the shape of the user object from the API
+interface ApiUser {
   id: string;
   email: string;
   name: string;
   role: 'citizen' | 'official' | 'analyst';
 }
 
-// Update the Props type to get onLogin from route.params
-type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
+// Define the shape of the tokens object
+interface ApiTokens {
+  access?: {
+    token: string;
+    expires: string;
+  };
+  refresh?: {
+    token: string;
+    expires: string;
+  };
+}
 
+// Define the shape of a successful login response
+interface LoginSuccessResponse {
+  user: ApiUser;
+  tokens: ApiTokens;
+}
+
+// Define the shape of a failed login response
+interface LoginErrorResponse {
+  message: string;
+}
+
+// ====================================================================
+// Define the component props
+// ====================================================================
+
+// Extend the standard navigation props with the custom 'onLogin' prop
+type Props = NativeStackScreenProps<RootStackParamList, 'Login'> & {
+  onLogin: (user: ApiUser) => void;
+};
+
+// ====================================================================
+// Type Guard Functions
+// ====================================================================
+
+// Checks if the unknown data matches the LoginSuccessResponse shape
+function isLoginSuccessResponse(data: unknown): data is LoginSuccessResponse {
+  if (typeof data !== 'object' || data === null) {
+    return false;
+  }
+  const typedData = data as Record<string, unknown>;
+  return (
+    'user' in typedData &&
+    typeof typedData.user === 'object' &&
+    typedData.user !== null &&
+    'id' in typedData.user &&
+    'email' in typedData.user &&
+    'name' in typedData.user &&
+    'tokens' in typedData &&
+    typeof typedData.tokens === 'object' &&
+    typedData.tokens !== null
+  );
+}
+
+// Checks if the unknown data matches the LoginErrorResponse shape
+function isLoginErrorResponse(data: unknown): data is LoginErrorResponse {
+  if (typeof data !== 'object' || data === null) {
+    return false;
+  }
+  return 'message' in (data as Record<string, unknown>);
+}
+
+// ====================================================================
 // The LoginScreen Component
-const LoginScreen: React.FC<Props> = ({ navigation, route }) => {
+// ====================================================================
+
+const LoginScreen: React.FC<Props> = ({ navigation, onLogin }) => {
   const { t, i18n } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
   const [email, setEmail] = useState('');
@@ -31,17 +97,31 @@ const LoginScreen: React.FC<Props> = ({ navigation, route }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Get the onLogin function from route.params
-  const onLogin = route.params?.onLogin;
-
-  if (!onLogin) {
-    return <Text>Error: Login function not found.</Text>;
-  }
-
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
     setSelectedLanguage(language);
   };
+
+  function isLoginSuccessResponse(data: any): data is {
+    user: any;
+    tokens: {
+      access: {
+        token: string;
+        expires: string;
+      };
+    };
+  } {
+    return (
+      typeof data === 'object' &&
+      data !== null &&
+      'user' in data &&
+      'tokens' in data &&
+      typeof data.tokens?.access?.token === 'string' &&
+      typeof data.tokens?.access?.expires === 'string'
+    );
+  }
+
+  const API_BASE_URL = 'http://192.168.0.108:5000/api/v1';
 
   const handleLogin = async () => {
     if (email.trim() === '' || password.trim() === '') {
@@ -52,28 +132,61 @@ const LoginScreen: React.FC<Props> = ({ navigation, route }) => {
     setIsLoading(true);
 
     try {
-      // Simulate a network delay
-      await new Promise(resolve => setTimeout(() => resolve(undefined), 2000));
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          identifier: email,
+          password,
+        }),
+      });
 
-      // Hardcoded login logic
-      if (email === 'ipshita' && password === '123456') {
-        const dummyUser: User = {
-          id: '123',
-          email: 'ipshita@example.com',
-          name: 'Ipshita',
-          role: 'citizen',
-        };
-        onLogin(dummyUser);
+      const responseData: unknown = await response.json();
+      console.log('Login API Response:', responseData);
+
+      if (!response.ok) {
+        if (isLoginErrorResponse(responseData)) {
+          throw new Error(
+            responseData.message || 'Login failed. Check your credentials.',
+          );
+        } else {
+          throw new Error('An unexpected error occurred. Please try again.');
+        }
+      }
+
+      if (isLoginSuccessResponse(responseData)) {
+        const { user, tokens } = responseData;
+
+        await AsyncStorage.setItem('userData', JSON.stringify(user));
+
+        if (tokens?.access?.token) {
+          await AsyncStorage.setItem('authToken', tokens.access.token);
+        }
+
+        onLogin(user);
       } else {
-        Alert.alert(t('login.alert.failedTitle'), t('login.alert.incorrectCredentials'));
+        console.warn('Unexpected login response shape:', responseData);
+        throw new Error('Unexpected data format received from the server.');
       }
     } catch (err: any) {
-      console.warn('Login error:', err);
-      Alert.alert(t('login.alert.failedTitle'), 'An unexpected error occurred during login.');
+      console.warn('Login error raw:', err);
+
+      let errorMessage = 'An unexpected error occurred.';
+
+      if (err instanceof Error && err.message) {
+        errorMessage = err.message;
+      } else if (typeof err === 'string') {
+        errorMessage = err;
+      }
+
+      Alert.alert(t('login.alert.failedTitle'), errorMessage);
     } finally {
       setIsLoading(false);
     }
   };
+
 
   return (
     <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">

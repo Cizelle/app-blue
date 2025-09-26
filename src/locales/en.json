@@ -517,7 +517,227 @@
       "uploadAuthorizationLetter": "Upload Authorization Letter"
     },
     "requiredText": "Required"
+  },
+  "dashboard": {
+    "header": {
+      "appName": "Sahayak",
+      "tagline": "Your Safety, Our Priority"
+    },
+    "welcome": {
+      "greeting": "Hi, {{username}}",
+      "subtitle": "Stay informed, stay safe"
+    },
+    "status": {
+      "label": "LIVE STATUS",
+      "reportsCount": "{{count}} reports"
+    },
+    "actions": {
+      "reportHazard": {
+        "title": "Report Hazard",
+        "subtitle": "Inform authorities about a hazard"
+      },
+      "donate": {
+        "title": "Donate",
+        "subtitle": "Help communities in need"
+      },
+      "trackFamily": {
+        "title": "Family Tracker",
+        "subtitle": "Keep track of your loved ones"
+      },
+      "offlineMode": {
+        "title": "Offline Mode",
+        "subtitle": "Access key info offline"
+      }
+    },
+    "nearby": {
+      "title": "Nearby Activity",
+      "mapText": "Map Preview",
+      "waveWarning": "High Wave Warning",
+      "shelterAvailable": "Shelter Available"
+    },
+    "reports": {
+      "title": "My Recent Reports",
+      "newButton": "New Report",
+      "item1": {
+        "title": "Flooding at City Center",
+        "subtitle": "Status update pending"
+      },
+      "item2": {
+        "title": "Roadblock near Bridge A",
+        "subtitle": "Verified by our team"
+      },
+      "statusVerified": "Verified",
+      "statusPending": "Pending",
+      "viewAllButton": "View All Reports"
+    
+  },
+  "donation": {
+    "headerTitle": "Donate",
+    "totalDonatedLabel": "Total Donated",
+    "currencySymbol": "₹",
+    "amountLabel": "Amount",
+    "amountPlaceholder": "e.g. 100",
+    "paymentMethodLabel": "Payment Method",
+    "paymentMethods": {
+      "upi": "UPI",
+      "gpay": "GPay",
+      "crypto": "Crypto"
+    },
+    "purposeLabel": "Purpose (Optional)",
+    "purposePlaceholder": "e.g. Flood relief fund",
+    "donateButton": "Donate Now",
+    "alert": {
+      "incompleteTitle": "Incomplete Donation",
+      "incompleteMessage": "Please fill in all required fields to continue.",
+      "successTitle": "Thank You!",
+      "successMessage": "Your donation of {{amount}}{{currency}} was successful.",
+      "upiRequiredTitle": "UPI ID Required",
+      "upiRequiredMessage": "Please enter your UPI ID to proceed with the payment."
+    }
+  },
+  "upiPayment": {
+    "headerTitle": "Secure Payment",
+    "timerTitle": "Waiting for Payment",
+    "instructions": "Please open your UPI app to complete the payment within the time limit.",
+    "amountLabel": "Amount",
+    "upiIdLabel": "UPI ID",
+    "successTitle": "Payment Successful!",
+    "successMessage": "Your donation of ₹{{amount}} has been received.",
+    "doneButton": "Done"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "family": "Family",
+    "sos": "SOS",
+    "offline": "Offline",
+    "profile": "Profile"
+  },
+  "offlineScreen": {
+    "title": "You are Offline",
+    "subtitle": "Some features may not be available. Reconnect to get live updates."
   }
+},
+  "dashboard": {
+    "header": {
+      "appName": "Sahayak",
+      "tagline": "Your Safety, Our Priority"
+    },
+    "welcome": {
+      "greeting": "Namaste, {{username}}",
+      "subtitle": "Stay informed, stay safe"
+    },
+    "status": {
+      "label": "LIVE STATUS",
+      "reportsCount": "{{count}} reports"
+    },
+    "actions": {
+      "reportHazard": {
+        "title": "Report Hazard",
+        "subtitle": "Inform authorities about a hazard"
+      },
+      "donate": {
+        "title": "Donate",
+        "subtitle": "Help communities in need"
+      },
+      "trackFamily": {
+        "title": "Family Tracker",
+        "subtitle": "Keep track of your loved ones"
+      },
+      "offlineMode": {
+        "title": "Offline Mode",
+        "subtitle": "Access key info offline"
+      }
+    },
+    "nearby": {
+      "title": "Nearby Activity",
+      "mapText": "Map Preview",
+      "waveWarning": "High Wave Warning",
+      "shelterAvailable": "Shelter Available"
+    },
+    "reports": {
+      "title": "My Recent Reports",
+      "newButton": "New Report",
+      "item1": {
+        "title": "Flooding at City Center",
+        "subtitle": "Status update pending"
+      },
+      "item2": {
+        "title": "Roadblock near Bridge A",
+        "subtitle": "Verified by our team"
+      },
+      "statusVerified": "Verified",
+      "statusPending": "Pending",
+      "viewAllButton": "View All Reports"
+    }
+  },
+  "donation": {
+    "headerTitle": "Donate",
+    "totalDonatedLabel": "Total Donated",
+    "currencySymbol": "₹",
+    "amountLabel": "Amount",
+    "amountPlaceholder": "e.g. 100",
+    "paymentMethodLabel": "Payment Method",
+    "paymentMethods": {
+      "upi": "UPI",
+      "gpay": "GPay",
+      "crypto": "Crypto"
+    },
+    "purposeLabel": "Purpose (Optional)",
+    "purposePlaceholder": "e.g. Flood relief fund",
+    "donateButton": "Donate Now",
+    "alert": {
+      "incompleteTitle": "Incomplete Donation",
+      "incompleteMessage": "Please fill in all required fields to continue.",
+      "successTitle": "Thank You!",
+      "successMessage": "Your donation of {{amount}}{{currency}} was successful.",
+      "upiRequiredTitle": "UPI ID Required",
+      "upiRequiredMessage": "Please enter your UPI ID to proceed with the payment."
+    }
+  },
+  "upiPayment": {
+    "headerTitle": "Secure Payment",
+    "timerTitle": "Waiting for Payment",
+    "instructions": "Please open your UPI app to complete the payment within the time limit.",
+    "amountLabel": "Amount",
+    "upiIdLabel": "UPI ID",
+    "successTitle": "Payment Successful!",
+    "successMessage": "Your donation of ₹{{amount}} has been received.",
+    "doneButton": "Done"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "family": "Family",
+    "sos": "SOS",
+    "offline": "Offline",
+    "profile": "Profile"
+  },
+  "offlineScreen": {
+    "title": "You are Offline",
+    "subtitle": "Some features may not be available. Reconnect to get live updates."
+  },
+
+  "reportHazard": {
+    "headerTitle": "Report a Hazard",
+    "locationLabel": "Your Location",
+    "locationText": "Your Location",
+    "hazardTypeLabel": "Type of Hazard",
+    "hazardTypes": {
+      "fire": "Fire",
+      "flood": "Flood",
+      "earthquake": "Earthquake",
+      "landslide": "Landslide",
+      "other": "Other"
+    },
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Provide details of the hazard...",
+    "mediaLabel": "Upload Media",
+    "mediaButtonText": "Upload Photo / Video",
+    "reportButtonText": "Submit Report",
+    "submissionSuccessTitle": "Submission Successful!",
+    "submissionSuccessMessage": "Your report has been submitted successfully."
+  }
+
+
 
 
 }

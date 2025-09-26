@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -12,9 +13,17 @@ import AddInfoPersonalScreen from '../screens/profile/AddInfoPersonalScreen';
 import AddInfoMedicalScreen from '../screens/profile/AddInfoMedicalScreen';
 import ProfileConfirmationScreen from '../screens/auth/ProfileConfirmationScreen';
 import SosScreen from '../screens/hazards/SosScreen';
+import FamilyTrackerScreen from '../screens/family/FamilyTrackerScreen';
+import AllReportsScreen from '../screens/reports/AllReportsScreen';
+import ResourcesScreen from '../screens/resources/ResourcesScreen';
 import { StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import MissingPersonFinderScreen from '../screens/missingperson/MissingPersonFinderScreen';
+import UpiPaymentScreen from '../screens/donations/UpiPaymentScreen';
+import offlineScreen from '../screens/offline/OfflineScreen';
 
+
+// The OfflineScreen component is already correctly defined here.
 const OfflineScreen = () => {
   const { t } = useTranslation();
   return (
@@ -50,13 +59,16 @@ const offlineStyles = StyleSheet.create({
 
 const Tab = createBottomTabNavigator();
 const DashboardStack = createNativeStackNavigator();
+const ProfileStack = createNativeStackNavigator();
+const FamilyTrackerStack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
-// Define the type for the nested Dashboard Stack
+// Updated type for the nested navigation stacks
 export type DashboardStackParamList = {
   DashboardHome: { username: string };
   ReportHazard: undefined;
   Donate: undefined;
+  UpiPayment: { amount: number; upiId: string }; // <-- ADDED THIS LINE
 };
 
 export type ProfileStackParamList = {
@@ -66,9 +78,14 @@ export type ProfileStackParamList = {
   ProfileConfirmation: undefined;
 };
 
+export type FamilyTrackerParamList = {
+  FamilyTrackerHome: undefined;
+};
+
 // Define the navigation stack for the Dashboard tab
 const DashboardStackScreen = ({ route }: any) => {
-  const { username } = route.params;
+  // Correctly access username from route.params
+  const { username } = route.params; 
   return (
     <DashboardStack.Navigator screenOptions={{ headerShown: false }}>
       <DashboardStack.Screen
@@ -76,14 +93,18 @@ const DashboardStackScreen = ({ route }: any) => {
         component={DashboardScreen}
         initialParams={{ username }}
       />
+      <DashboardStack.Screen 
+        name="UpiPayment" 
+        component={UpiPaymentScreen} 
+        options={{ headerShown: false }} 
+      />
       <DashboardStack.Screen name="ReportHazard" component={ReportHazardScreen} />
       <DashboardStack.Screen name="Donate" component={DonationScreen} />
     </DashboardStack.Navigator>
   );
 };
 
-const ProfileStack = createNativeStackNavigator();
-
+// Define the navigation stack for the Profile tab
 const ProfileStackScreen = () => {
   return (
     <ProfileStack.Navigator screenOptions={{ headerShown: false }}>
@@ -95,9 +116,19 @@ const ProfileStackScreen = () => {
   );
 };
 
+// Define the navigation stack for the Family Tracker tab
+const FamilyTrackerStackScreen = () => {
+  return (
+    <FamilyTrackerStack.Navigator screenOptions={{ headerShown: false }}>
+      <FamilyTrackerStack.Screen name="FamilyTrackerHome" component={FamilyTrackerScreen} />
+    </FamilyTrackerStack.Navigator>
+  );
+};
+
 // Main Tab Navigator
 const MainTabs = ({ route }: any) => {
-  const { username } = route.params;
+  // Correctly access user and onLogout from route.params
+  const { user, onLogout } = route.params;
   const { t } = useTranslation();
 
   return (
@@ -106,14 +137,13 @@ const MainTabs = ({ route }: any) => {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
-          let iconColor = color;
+
           switch (route.name) {
             case 'Dashboard':
               iconName = focused ? 'home-variant' : 'home-variant-outline';
               break;
             case 'Family':
               iconName = focused ? 'account-group' : 'account-group-outline';
-              iconColor = '#999'; // Make the icon gray to indicate it's inactive
               break;
             case 'SOS':
               iconName = 'alert-octagon';
@@ -124,10 +154,13 @@ const MainTabs = ({ route }: any) => {
             case 'Profile':
               iconName = focused ? 'account-circle' : 'account-circle-outline';
               break;
+            case 'MissingPersonFinder':
+              iconName = focused ? 'magnify' : 'magnify';
+              break;
             default:
               iconName = 'help-circle';
           }
-          return <Icon name={iconName} size={size} color={iconColor} />;
+          return <Icon name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: '#138D35',
         tabBarInactiveTintColor: '#999',
@@ -145,21 +178,14 @@ const MainTabs = ({ route }: any) => {
       <Tab.Screen
         name="Dashboard"
         component={DashboardStackScreen}
-        initialParams={{ username }}
+        // Fix: Pass the username directly to the Dashboard stack
+        initialParams={{ username: user?.name }}
         options={{ tabBarLabel: t('navigation.dashboard') }}
       />
-      {/* The Family tab is disabled by setting a custom, non-interactive button */}
       <Tab.Screen
         name="Family"
-        component={() => null} // Point to a dummy component
-        options={{
-          tabBarLabel: t('navigation.family'),
-          tabBarButton: (props) => (
-            <View {...props} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-              {props.children}
-            </View>
-          ),
-        }}
+        component={FamilyTrackerStackScreen}
+        options={{ tabBarLabel: t('navigation.family') }}
       />
       <Tab.Screen
         name="SOS"
@@ -176,23 +202,33 @@ const MainTabs = ({ route }: any) => {
         component={ProfileStackScreen}
         options={{ tabBarLabel: t('navigation.profile') }}
       />
+      {/* Missing Person Finder screen, hidden from the bottom tab bar */}
+      <Tab.Screen
+        name="MissingPersonFinder"
+        component={MissingPersonFinderScreen}
+        options={{
+          tabBarButton: () => null,
+          headerShown: false,
+        }}
+      />
     </Tab.Navigator>
   );
 };
 
 // Main Drawer Navigator that wraps the Tab Navigator
-const MainDrawerNavigator = ({ route }: any) => {
-  const { username } = route.params;
+const MainDrawerNavigator = ({ user, onLogout }: any) => {
   return (
     <Drawer.Navigator
-      drawerContent={props => <DrawerMenu {...props} />}
+      drawerContent={props => <DrawerMenu {...props} onLogout={onLogout} />}
       screenOptions={{ headerShown: false }}
     >
       <Drawer.Screen
         name="MainTabs"
         component={MainTabs}
-        initialParams={{ username }}
+        initialParams={{ user, onLogout }}
       />
+      <Drawer.Screen name="AllReports" component={AllReportsScreen} />
+      <Drawer.Screen name="Resources" component={ResourcesScreen} />
     </Drawer.Navigator>
   );
 };

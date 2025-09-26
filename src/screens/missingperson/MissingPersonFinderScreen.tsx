@@ -1,10 +1,28 @@
+// src/screens/MissingPersonFinderScreen.tsx
+
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useTranslation } from 'react-i18next';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const MissingPersonFinderScreen = ({ }) => {
+// Define the type for the root stack navigator parameters
+// This type is necessary for correct TypeScript usage with navigation
+type RootStackParamList = {
+  // Add the screen name for the missing person form here
+  MissingPersonForm: undefined; // 'undefined' because it doesn't take any parameters
+  // You would add other screens here, e.g., 'MissingPersonDetails: { id: string }'
+};
+
+// Define the navigation prop type for this screen
+type MissingPersonFinderScreenNavigationProp = StackNavigationProp<RootStackParamList, 'MissingPersonForm'>;
+
+// Define the component props, including the navigation prop
+type Props = {
+  navigation: MissingPersonFinderScreenNavigationProp;
+};
+
+const MissingPersonFinderScreen = ({ navigation }: Props) => {
   const { t } = useTranslation();
   return (
     <SafeAreaView style={styles.container}>
@@ -20,9 +38,8 @@ const MissingPersonFinderScreen = ({ }) => {
         <TouchableOpacity
           style={styles.optionCard}
           onPress={() => {
-            // Navigate to the Report Missing Person form
-            // You will need to create a new screen for this form
-            // navigation.navigate('ReportMissingPerson');
+            // Navigate to the Missing Person Form screen
+            navigation.navigate('MissingPersonForm');
           }}
         >
           <Icon name="account-search-outline" size={60} color="#e74c3c" style={styles.icon} />
@@ -36,9 +53,9 @@ const MissingPersonFinderScreen = ({ }) => {
         <TouchableOpacity
           style={styles.optionCard}
           onPress={() => {
-            // Navigate to the Found Someone form
-            // You will also need to create a new screen for this
-            // navigation.navigate('FoundMissingPerson');
+            // You could navigate to a separate screen for found persons,
+            // but for now, we'll navigate to the same form
+            navigation.navigate('MissingPersonForm');
           }}
         >
           <Icon name="check-decagram-outline" size={60} color="#27ae60" style={styles.icon} />
